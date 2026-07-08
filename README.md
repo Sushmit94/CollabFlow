@@ -6,6 +6,11 @@ Multi-user document editing, Kanban boards, live presence awareness, and conflic
 
 ---
 
+
+
+
+
+
 ## ✨ Features
 
 - **Real-Time Document Editing** — Conflict-free sync via Yjs CRDTs, delta updates, offline-first
