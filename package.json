@@ -1,0 +1,20 @@
+﻿{
+  "name": "collabflow",
+  "version": "1.0.0",
+  "private": true,
+  "description": "A production-grade real-time collaborative workspace",
+  "scripts": {
+    "dev": "pnpm --filter @collabflow/web dev",
+    "dev:server": "pnpm --filter @collabflow/server dev",
+    "dev:all": "pnpm --parallel --filter @collabflow/* dev",
+    "build": "pnpm --filter @collabflow/* build",`r`n    "prisma": "pnpm --filter @collabflow/server prisma",
+    "typecheck": "pnpm --filter @collabflow/* typecheck",
+    "lint": "pnpm --filter @collabflow/* lint",
+    "clean": "pnpm --filter @collabflow/* clean"
+  },
+  "engines": {
+    "node": ">=20.0.0"
+  },
+  "packageManager": "pnpm@9.15.0"
+}
+

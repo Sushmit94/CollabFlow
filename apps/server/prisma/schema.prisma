@@ -1,0 +1,93 @@
+// Prisma schema for CollabFlow
+// Run: npx prisma migrate dev --name init
+// Run: npx prisma generate
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id           String      @id @default(uuid())
+  email        String      @unique
+  name         String
+  passwordHash String      @map("password_hash")
+  avatarUrl    String?     @map("avatar_url")
+  createdAt    DateTime    @default(now()) @map("created_at")
+  updatedAt    DateTime    @updatedAt @map("updated_at")
+
+  ownedWorkspaces Workspace[]
+  documents       Document[]
+  assignedTasks   Task[]       @relation("TaskAssignee")
+
+  @@map("users")
+}
+
+model Workspace {
+  id        String   @id @default(uuid())
+  name      String
+  slug      String   @unique
+  ownerId   String   @map("owner_id")
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+
+  owner     User       @relation(fields: [ownerId], references: [id])
+  documents Document[]
+  boards    Board[]
+
+  @@map("workspaces")
+}
+
+model Document {
+  id          String   @id @default(uuid())
+  title       String
+  content     String   @default("")
+  yjsState    Bytes?   @map("yjs_state")
+  workspaceId String   @map("workspace_id")
+  createdBy   String   @map("created_by")
+  createdAt   DateTime @default(now()) @map("created_at")
+  updatedAt   DateTime @updatedAt @map("updated_at")
+
+  workspace Workspace @relation(fields: [workspaceId], references: [id], onDelete: Cascade)
+  author    User      @relation(fields: [createdBy], references: [id])
+
+  @@index([workspaceId])
+  @@map("documents")
+}
+
+model Board {
+  id          String   @id @default(uuid())
+  name        String
+  workspaceId String   @map("workspace_id")
+  createdAt   DateTime @default(now()) @map("created_at")
+  updatedAt   DateTime @updatedAt @map("updated_at")
+
+  workspace Workspace @relation(fields: [workspaceId], references: [id], onDelete: Cascade)
+  tasks     Task[]
+
+  @@index([workspaceId])
+  @@map("boards")
+}
+
+model Task {
+  id          String   @id @default(uuid())
+  title       String
+  description String?
+  status      String   @default("backlog")
+  priority    String   @default("medium")
+  order       Int      @default(0)
+  boardId     String   @map("board_id")
+  assigneeId  String?  @map("assignee_id")
+  createdAt   DateTime @default(now()) @map("created_at")
+  updatedAt   DateTime @updatedAt @map("updated_at")
+
+  board    Board @relation(fields: [boardId], references: [id], onDelete: Cascade)
+  assignee User? @relation("TaskAssignee", fields: [assigneeId], references: [id])
+
+  @@index([boardId, status])
+  @@map("tasks")
+}

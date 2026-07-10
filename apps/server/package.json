@@ -1,0 +1,34 @@
+﻿{
+  "name": "@collabflow/server",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "tsx watch src/index.ts",
+    "build": "tsc",`r`n    "prisma": "prisma --schema prisma/schema.prisma",
+    "start": "node dist/index.js",
+    "typecheck": "tsc --noEmit",
+    "clean": "node -e \"require('fs').rmSync('dist',{recursive:true,force:true})\""
+  },
+  "dependencies": {
+    "@collabflow/types": "workspace:*",
+    "@collabflow/shared": "workspace:*",
+    "@collabflow/utils": "workspace:*",
+    "fastify": "^5.1.0",
+    "@fastify/cors": "^10.0.0",
+    "@fastify/websocket": "^11.0.0",
+    "@fastify/jwt": "^9.0.0",
+    "bcryptjs": "^2.4.3",
+    "ioredis": "^5.4.0",
+    "zod": "^3.23.0",
+    "yjs": "^13.6.0",`r`n    "@prisma/client": "^6.0.0"
+  },
+  "devDependencies": {
+    "typescript": "^5.7.0",
+    "tsx": "^4.19.0",
+    "@types/node": "^22.0.0",
+    "@types/bcryptjs": "^2.4.6",
+    "@types/ws": "^8.5.0",`r`n    "prisma": "^6.0.0"
+  }
+}
+

@@ -1,0 +1,32 @@
+﻿'use client';
+
+import Link from 'next/link';
+import { FileText, KanbanSquare, LayoutDashboard, Users } from 'lucide-react';
+
+export function Shell({ children, active = 'dashboard' }: { children: React.ReactNode; active?: 'dashboard' | 'documents' | 'board' }) {
+  return (
+    <div className="app-shell">
+      <aside className="sidebar">
+        <Link href="/" className="brand">
+          <span className="brand-mark"><Users size={18} /></span>
+          <span>CollabFlow</span>
+        </Link>
+        <nav className="nav-stack" aria-label="Workspace">
+          <Link className={`nav-item ${active === 'dashboard' ? 'active' : ''}`} href="/">
+            <LayoutDashboard size={18} /><span>Dashboard</span>
+          </Link>
+          <Link className={`nav-item ${active === 'documents' ? 'active' : ''}`} href="/#documents">
+            <FileText size={18} /><span>Documents</span>
+          </Link>
+          <Link className={`nav-item ${active === 'board' ? 'active' : ''}`} href="/#board">
+            <KanbanSquare size={18} /><span>Board</span>
+          </Link>
+        </nav>
+        <div className="sidebar-footer">
+          Demo user: alex@collabflow.dev<br />Password: password123
+        </div>
+      </aside>
+      <main className="main">{children}</main>
+    </div>
+  );
+}
