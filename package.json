@@ -1,4 +1,4 @@
-﻿{
+{
   "name": "collabflow",
   "version": "1.0.0",
   "private": true,
@@ -7,7 +7,8 @@
     "dev": "pnpm --filter @collabflow/web dev",
     "dev:server": "pnpm --filter @collabflow/server dev",
     "dev:all": "pnpm --parallel --filter @collabflow/* dev",
-    "build": "pnpm --filter @collabflow/* build",`r`n    "prisma": "pnpm --filter @collabflow/server prisma",
+    "build": "pnpm --filter @collabflow/* build",
+    "prisma": "pnpm --filter @collabflow/server prisma",
     "typecheck": "pnpm --filter @collabflow/* typecheck",
     "lint": "pnpm --filter @collabflow/* lint",
     "clean": "pnpm --filter @collabflow/* clean"
@@ -17,4 +18,3 @@
   },
   "packageManager": "pnpm@9.15.0"
 }
-

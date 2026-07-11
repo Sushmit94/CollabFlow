@@ -14,7 +14,6 @@ export async function authRoutes(fastify: FastifyInstance) {
       return reply.status(400).send({ success: false, error: message });
     }
   });
-
   // POST /api/auth/login
   fastify.post('/api/auth/login', async (request, reply) => {
     try {
