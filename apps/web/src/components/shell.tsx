@@ -7,18 +7,18 @@ export function Shell({ children, active = 'dashboard' }: { children: React.Reac
   return (
     <div className="app-shell">
       <aside className="sidebar">
-        <Link href="/" className="brand">
+        <Link href="/app" className="brand">
           <span className="brand-mark"><Users size={18} /></span>
           <span>CollabFlow</span>
         </Link>
         <nav className="nav-stack" aria-label="Workspace">
-          <Link className={`nav-item ${active === 'dashboard' ? 'active' : ''}`} href="/">
+          <Link className={`nav-item ${active === 'dashboard' ? 'active' : ''}`} href="/app">
             <LayoutDashboard size={18} /><span>Dashboard</span>
           </Link>
-          <Link className={`nav-item ${active === 'documents' ? 'active' : ''}`} href="/#documents">
+          <Link className={`nav-item ${active === 'documents' ? 'active' : ''}`} href="/app#documents">
             <FileText size={18} /><span>Documents</span>
           </Link>
-          <Link className={`nav-item ${active === 'board' ? 'active' : ''}`} href="/#board">
+          <Link className={`nav-item ${active === 'board' ? 'active' : ''}`} href="/app#board">
             <KanbanSquare size={18} /><span>Board</span>
           </Link>
         </nav>

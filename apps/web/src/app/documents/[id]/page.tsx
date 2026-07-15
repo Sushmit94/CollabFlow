@@ -24,7 +24,7 @@ export default function DocumentPage({ params }: { params: Promise<{ id: string 
   return (
     <Shell active="documents">
       <div className="topbar">
-        <Link href="/" className="secondary-button"><ArrowLeft size={17} />Workspace</Link>
+        <Link href="/app" className="secondary-button"><ArrowLeft size={17} />Workspace</Link>
       </div>
       {error && <div className="panel" style={{ padding: 18, color: 'var(--red)' }}>{error}</div>}
       {!document && !error && <div className="panel" style={{ padding: 18 }}>Loading document...</div>}
