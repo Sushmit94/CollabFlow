@@ -157,10 +157,10 @@ export default function LandingPage() {
           className={styles.heroMeta}
         >
           <span className={styles.avatarStack}>
-            <span style={{ background: '#4f7cff' }}>AM</span>
-            <span style={{ background: '#22d3c8' }}>PN</span>
-            <span style={{ background: '#a78bfa' }}>MF</span>
-            <span style={{ background: '#f0b429' }}>SD</span>
+            <span style={{ background: '#2563eb' }}>AM</span>
+            <span style={{ background: '#0e7490' }}>PN</span>
+            <span style={{ background: '#0f8b6f' }}>MF</span>
+            <span style={{ background: '#b7791f' }}>SD</span>
           </span>
           Trusted by 12,000+ product and engineering teams
         </motion.div>
@@ -432,7 +432,7 @@ function ProductMockup() {
         animate={{ y: [0, -8, 0] }}
         transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut' }}
       >
-        <Users size={14} color="#22d3c8" />
+        <Users size={14} color="#dbe7ea" />
         4 teammates editing
       </motion.div>
       <motion.div
@@ -440,7 +440,7 @@ function ProductMockup() {
         animate={{ y: [0, 8, 0] }}
         transition={{ duration: 4.5, repeat: Infinity, ease: 'easeInOut', delay: 0.4 }}
       >
-        <CheckCircle2 size={14} color="#4f7cff" />
+        <CheckCircle2 size={14} color="#dbe7ea" />
         Task moved to Done
       </motion.div>
 
