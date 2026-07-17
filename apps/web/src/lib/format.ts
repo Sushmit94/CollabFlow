@@ -1,12 +1,15 @@
-﻿export function plainTextFromDocument(content: string): string {
-  if (!content) return '';
+﻿import type { JSONContent } from '@tiptap/react';
+
+const EMPTY_DOC: JSONContent = { type: 'doc', content: [{ type: 'paragraph' }] };
+
+export function docContentFromDocument(content: string): JSONContent {
+  if (!content) return EMPTY_DOC;
 
   try {
-    const parsed = JSON.parse(content) as { content?: Array<{ content?: Array<{ text?: string }> }> };
-    const lines = parsed.content?.map((block) => block.content?.map((item) => item.text || '').join('') || '').filter(Boolean);
-    return lines?.join('\n\n') || content;
+    return JSON.parse(content) as JSONContent;
   } catch {
-    return content;
+    // Legacy/plain-text content predating the rich-text editor.
+    return { type: 'doc', content: [{ type: 'paragraph', content: content ? [{ type: 'text', text: content }] : [] }] };
   }
 }
 
