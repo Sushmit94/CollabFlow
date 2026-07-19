@@ -13,6 +13,7 @@ import {
   ShieldCheck,
   Sparkles,
   Users,
+  Workflow,
   Zap,
 } from 'lucide-react';
 import styles from './page.module.css';
@@ -96,7 +97,7 @@ export default function LandingPage() {
 
       <header className={styles.nav}>
         <Link href="/" className={styles.brand}>
-          <span className={styles.brandMark}><Users size={17} /></span>
+          <span className={styles.brandMark}><Workflow size={17} /></span>
           <span>CollabFlow</span>
         </Link>
         <nav className={styles.navLinks} aria-label="Marketing">
@@ -300,7 +301,7 @@ export default function LandingPage() {
         <div className={styles.footerTop}>
           <div className={styles.footerBrand}>
             <div className={styles.brand}>
-              <span className={styles.brandMark}><Users size={17} /></span>
+              <span className={styles.brandMark}><Workflow size={17} /></span>
               <span>CollabFlow</span>
             </div>
             <p className={styles.footerTagline}>

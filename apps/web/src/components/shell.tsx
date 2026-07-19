@@ -1,14 +1,14 @@
 ﻿'use client';
 
 import Link from 'next/link';
-import { FileText, KanbanSquare, LayoutDashboard, Users } from 'lucide-react';
+import { FileText, KanbanSquare, LayoutDashboard, Workflow } from 'lucide-react';
 
 export function Shell({ children, active = 'dashboard' }: { children: React.ReactNode; active?: 'dashboard' | 'documents' | 'board' }) {
   return (
     <div className="app-shell">
       <aside className="sidebar">
         <Link href="/app" className="brand">
-          <span className="brand-mark"><Users size={18} /></span>
+          <span className="brand-mark"><Workflow size={18} /></span>
           <span>CollabFlow</span>
         </Link>
         <nav className="nav-stack" aria-label="Workspace">
