@@ -184,4 +184,4 @@ k6 run scripts/load-test.js
 
 ## 📜 License
 
-MIT © [yourusername](https://github.com/yourusername)
+MIT © [Sushmit94](https://github.com/Sushmit94)
